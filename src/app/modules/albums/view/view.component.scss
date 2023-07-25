@@ -1,0 +1,16 @@
+.view {
+  &__img {
+    margin-bottom: 1rem;
+
+  }
+
+  &__title {
+    color: rgb(49, 49, 49);
+  }
+
+  &__close {
+    border: 1px solid #3a3939;
+    border-radius: 2px;
+  }
+
+}

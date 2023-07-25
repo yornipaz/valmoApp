@@ -1,0 +1,46 @@
+<h1 class="text-center mt-4">Listado de album</h1>
+
+<mat-form-field>
+  <input matInput (keyup)="applyFilter($event)" placeholder="Filter">
+</mat-form-field>
+<div class="table-responsive example-container mat-elevation-z8">
+  <mat-table [dataSource]="dataSource" matSort>
+
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="albumId">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> ID del album </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.albumId}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.title}} </mat-cell>
+    </ng-container>
+    <!--
+  <ng-container matColumnDef="image">
+    <mat-header-cell *matHeaderCellDef> Image </mat-header-cell>
+    <mat-cell *matCellDef="let element">
+      <img [src]="element.url" alt={{element.title}} style="width: 50px; height: 50px;">
+    </mat-cell>
+  </ng-container>-->
+    <ng-container matColumnDef="view">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Opciones </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <button class="button__option" mat-fab color="primary"
+          aria-label="Example icon button with a open in new tab icon" (click)="viewAlbum(element.id)">
+          <mat-icon>search</mat-icon>
+        </button>
+      </mat-cell>
+    </ng-container>
+
+
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+
+  <mat-paginator [pageSizeOptions]="[ 10, 25, 100]" showFirstLastButtons></mat-paginator>
+</div>

@@ -1,0 +1,7 @@
+<div mat-dialog-content class="view">
+  <img [src]="data.thumbnailUrl" class="view__img" alt="Album Image  " style="width: 100%">
+  <p class="view__title">{{ data.title }}</p>
+</div>
+<div mat-dialog-actions>
+  <button mat-button class="view__close" (click)="onClose()">Cerrar</button>
+</div>
