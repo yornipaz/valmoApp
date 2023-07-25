@@ -10,12 +10,9 @@ import {
 } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
-import { TableResponsiveDirective } from './directives/table-responsive.directive';
 
 @NgModule({
-  declarations: [
-    TableResponsiveDirective
-  ],
+  declarations: [],
   imports: [
     CommonModule,
     HttpClientModule,
