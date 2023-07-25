@@ -3,7 +3,11 @@ import { RouterModule, Routes } from '@angular/router';
 import { UsersComponent } from './users.component';
 import { ListComponent } from './list/list.component';
 import { DetailsComponent } from './details/details.component';
-import { userResolver, usersResolver } from './users.resolver';
+import {
+  userPostsResolver,
+  userResolver,
+  usersResolver,
+} from './users.resolver';
 import { IdExistsGuard } from 'src/app/core/guars/id-exists.guard';
 
 const routes: Routes = [
@@ -11,10 +15,10 @@ const routes: Routes = [
   {
     path: ':id',
     component: DetailsComponent,
-    resolve: { user: userResolver },
+    resolve: { user: userResolver, posts: userPostsResolver },
     canActivate: [IdExistsGuard],
   },
-  { path: '**', redirectTo: '' },
+  { path: '**', redirectTo: '/users' },
 ];
 
 @NgModule({

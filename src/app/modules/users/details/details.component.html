@@ -1,1 +1,49 @@
-<p>details works!</p>
+<div class="user">
+  <p class="user__item">Nombre : <span class="user__item--primary">{{user.name}} {{user.username}}</span> </p>
+  <p class="user__item">Direcion : <span class="user__item--primary">{{user.address.street}},
+      {{user.address.city}}</span>
+  </p>
+  <p class="user__item">Correo : <span class="user__item--primary">{{user.email}}</span> </p>
+  <p class="user__item">Telefono : <span class="user__item--primary">{{user.phone}} </span> </p>
+  <p class="user__item">Website : <span class="user__item--primary">{{user.website}} </span> </p>
+  <p class="user__item">Empresa : <span class="user__item--primary">{{user.company.name}} </span> </p>
+</div>
+<h1 class="text-center mt-4">Listado de Post</h1>
+
+<div class="table-responsive example-container mat-elevation-z8">
+  <mat-table [dataSource]="dataSource" matSort>
+
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+    </ng-container>
+
+
+
+    <ng-container matColumnDef="email">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Titulo </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.title}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="body">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Cuerpo </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.body}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="view">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Opciones </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <button class="button__option" mat-fab color="primary"
+          aria-label="Example icon button with a open in new tab icon" (click)="viewUser(element.id)">
+          <mat-icon>search</mat-icon>
+        </button>
+      </mat-cell>
+    </ng-container>
+
+
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+
+  <mat-paginator [pageSizeOptions]="[ 10, 25, 100]" showFirstLastButtons></mat-paginator>
+</div>

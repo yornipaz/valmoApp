@@ -1,7 +1,7 @@
 <h1 class="text-center mt-4">Listado de Usuarios</h1>
 
 <mat-form-field>
-  <input matInput (keyup)="applyFilter($event)" placeholder="Filter">
+  <input matInput (keyup)="applyFilter($event)" placeholder="Id  o Nombre">
 </mat-form-field>
 <div class="table-responsive example-container mat-elevation-z8">
   <mat-table [dataSource]="dataSource" matSort>
@@ -31,10 +31,10 @@
     <ng-container matColumnDef="view">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Opciones </mat-header-cell>
       <mat-cell *matCellDef="let element">
-        <button class="button__option" mat-fab color="primary"
-          aria-label="Example icon button with a open in new tab icon" (click)="viewUser(element.id)">
+        <a class="button__option" mat-fab color="primary" aria-label="Example icon button with a open in new tab icon"
+          [routerLink]="[element.id]">
           <mat-icon>search</mat-icon>
-        </button>
+        </a>
       </mat-cell>
     </ng-container>
 

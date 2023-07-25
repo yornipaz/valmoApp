@@ -1,0 +1,26 @@
+@use "../../../../styles/abstract/variable"as v;
+@use "../../../../styles/abstract/mixin"as m;
+
+.user {
+  padding: 2rem 0;
+  font-size: 1.8rem;
+
+  margin: 2rem 0;
+
+  @include m.screen("md") {
+    @include m.grid(2, 3rem);
+  }
+
+  &__item {
+    font-size: 1.6rem;
+    color: v.$primary;
+    font-weight: 700;
+
+    &--primary {
+      color: v.$black;
+      font-size: 1.4rem;
+    }
+  }
+
+
+}

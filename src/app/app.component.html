@@ -2,7 +2,7 @@
   <header class="header">
     <nav class="navbar navbar-expand-sm navbar-light bg-light">
       <div class="container-fluid d-flex justify-content-lg-around">
-        <a class="navbar-brand" href="#">ValmoApp</a>
+        <a class="navbar-brand" [routerLink]="">ValmoApp</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -10,10 +10,10 @@
         <div class="collapse navbar-collapse flex-sm-grow-0" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
+              <a [routerLink]="['users']" class="nav-link active" aria-current="page">Usuarios</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
+              <a [routerLink]="['albums']" class="nav-link">Albumnes</a>
             </li>
 
           </ul>
